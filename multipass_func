@@ -1,0 +1,43 @@
+# Multipass Linux
+linux() {
+  # export the current host ip adress
+  export IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+
+  # export the Xauthority paths
+  export HOST_AUTH_FILE=~/.Xauthority
+  export REMOTE_AUTH_FILE=primary:/home/ubuntu/.Xauthority
+
+  # ip export on linux
+  export HOST_IP_FILE=~/.current_ip
+  export REMOTE_IP_FILE=primary:/home/ubuntu/.current_ip
+
+  local start=(multipass start)
+  local shell=(multipass shell)
+  local xAuth=(multipass transfer $HOST_AUTH_FILE $REMOTE_AUTH_FILE)
+  local ip=(multipass transfer $HOST_IP_FILE $REMOTE_IP_FILE)
+  local host=(xhost +$IP)
+
+  # Starting multipass primary instance
+  echo "=> ${start[*]}"
+  "${start[@]}"
+
+  # Add the current IP to the authorized X11 host
+  echo "=> ${host[*]}"
+  "${host[@]}"
+
+  # Transfer the .Xauthority file inside the primary instance
+  echo "=> ${xAuth[*]}"
+  "${xAuth[@]}"
+
+  # create file with the current ip
+  echo export DISPLAY=$IP:0 > ~/.current_ip
+
+  # Transfer the host ip file inside the primary instance
+  echo "=> ${ip[*]}"
+  "${ip[@]}"
+
+  # Running the ubunutu shell
+  echo "=> ${shell[*]}"
+  "${shell[@]}"
+
+}
