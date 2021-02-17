@@ -10,7 +10,7 @@ This zsh command start ubuntu with Multipass and automatically configure it to d
 
 1. Open your zsh terminal and clone the repository : `git clone https://github.com/mlecriva/zsh-multipass-GUI-on-macos.git`
 
-2. Then, launch the installation script : `install.sh`. The script will install xQuartz and multipass.
+2. Then, launch the installation script : `./install.sh`. The script will install xQuartz and multipass.
 
 3. Next, launch the previously installed software, xQuartz and check this two boxs to allow connections from any non-local computer.
    ![Alt text](pictures/xQuartz.png?raw=true "launch linux")
