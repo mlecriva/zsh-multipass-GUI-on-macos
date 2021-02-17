@@ -15,7 +15,7 @@ This zsh command start ubuntu with Multipass and automatically configure it to d
 3. Next, launch the previously installed software, xQuartz and check this two boxs to allow connections from any non-local computer.
    ![Alt text](pictures/xQuartz.png?raw=true "launch linux")
 
-4. Type the following command to run ubuntu primary session over ssh : `linux`. You can see the ubuntu prompt. Note the xHost ip adress for the next steps(ex:192.168.1.14).
+4. Type the following command to run ubuntu primary session over ssh : `linux`. You can see the ubuntu prompt and the host ip adress
    ![Alt text](pictures/launch.png?raw=true "launch linux")
 
 5. Do all the system update with `sudo apt update` and `sudo apt upgrade` commands.
