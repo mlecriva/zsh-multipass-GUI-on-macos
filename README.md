@@ -27,7 +27,7 @@ This zsh command start ubuntu with Multipass and automatically configure it to d
 
 7. Type this line to automatically source the host ip at startup : `echo 'source ~/.current_ip' >> ~/.bashrc`
 
-8. Source the .bashrc file : `source ~/.bashrc
+8. Source the .bashrc file : `source ~/.bashrc`
 
 9. Run nautilus to explore your folders and files : `nautilus`.
 
